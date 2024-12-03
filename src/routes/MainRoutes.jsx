@@ -5,16 +5,36 @@ import { Header } from '../Components/Header';
 import { Login } from '../pages/Login';
 import { Register } from '../pages/Register';
 import { AddProduct } from '../pages/AddProduct';
+import { useSelector } from 'react-redux';
 
 export const MainRoutes = () => {
+
+    const { auth } = useSelector((state) => state.mainSlice);
+
+    const loginRoutes = () => {
+        return (
+            <>
+                <Route path='/' element={<Home />} />
+                <Route path='/addProducto' element={<AddProduct />} />
+            </>
+        );
+    };
+
+    const unLoginRoutes = () => {
+        return (
+            <>
+                <Route path='/inicioSesion' element={<Login />} />
+                <Route path='/' element={<Home />} />
+                <Route path='/registro' element={<Register />} />
+            </>
+        )
+    };
+
     return (
         <Router>
             <Header />
             <Routes>
-                <Route path='/inicioSesion' element={<Login />} />
-                <Route path='/' element={<Home />} />
-                <Route path='/registro' element={<Register />} />
-                <Route path='/addProducto' element={<AddProduct />} />
+                {auth ? loginRoutes() : unLoginRoutes()}
             </Routes>
         </Router>
 
