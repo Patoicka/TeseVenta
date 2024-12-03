@@ -6,6 +6,7 @@ const initialState = {
     show: false,
     user: {},
     products: [],
+    car: [],
 };
 
 export const mainSlice = createSlice({
@@ -22,10 +23,13 @@ export const mainSlice = createSlice({
             state.user = action.payload;
         },
         setProducts: (state, action) => {
-            state.products.push(action.payload);
+            state.products = [...state.products, ...action.payload];
+        },
+        setCar: (state, action) => {
+            state.car.push(action.payload);
         },
     },
 });
 
-export const { setShow, setUser, setAuth, setProducts } = mainSlice.actions;
+export const { setShow, setUser, setAuth, setProducts, setCar } = mainSlice.actions;
 export default mainSlice.reducer;

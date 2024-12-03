@@ -32,7 +32,11 @@ export const Header = () => {
             <img src={logo} alt="logo" width={200} className='cursor-pointer' onClick={goHome} />
             <h1 className='w-full text-6xl text-center font-bold uppercase text-alabaster-900'> Tesegunda </h1>
             <div className='flex justify-end'>
-                <span className='text-alabaster-900 cursor-pointer px-5'> <FontAwesomeIcon icon={faShoppingCart} size='2xl' /> </span>
+                <span
+                    className='text-alabaster-900 cursor-pointer px-5'
+                >
+                    <FontAwesomeIcon icon={faShoppingCart} size='2xl' onClick={() => navigate('carrito')} />
+                </span>
                 <span className='text-alabaster-900 cursor-pointer px-5'>
                     <FontAwesomeIcon icon={faUser} size='2xl' onClick={changeShow} />
                 </span>

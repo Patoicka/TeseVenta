@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 export const HiddenUser = () => {
 
     const { show, user } = useSelector((state) => state.mainSlice);
-    console.log(user);
 
     return (
         <>

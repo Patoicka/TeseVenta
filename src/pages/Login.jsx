@@ -1,6 +1,6 @@
 import { faEye, faEyeSlash, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -8,13 +8,12 @@ import { setAuth } from '../store/slices';
 
 export const Login = () => {
     const { register, handleSubmit, watch } = useForm();
-    const [pass, setPass] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const { user } = useSelector((state) => state.mainSlice);
-    console.log(user.correo, user.password);
 
+    const [pass, setPass] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
     const onSubmit = (data) => {
