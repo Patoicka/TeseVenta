@@ -10,6 +10,9 @@ import { setCar } from '../store/slices';
 export const Home = () => {
 
     const { products } = useSelector((state) => state.mainSlice);
+
+    console.log(products);
+
     const dispatch = useDispatch();
 
     const [addWarn, setAddWarn] = useState(false);
@@ -43,7 +46,7 @@ export const Home = () => {
                 </div>
 
                 <h1 className='text-3xl font-semibold text-center my-10'> Algunos productos </h1>
-                <div className="flex w-full justify-center items-center flex-wrap gap-6">
+                <div className="flex w-full justify-center items-center flex-wrap gap-6 pb-10">
                     {products && products.length > 0 ? (
                         products.map((product, index) => {
                             return (

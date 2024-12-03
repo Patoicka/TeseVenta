@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { setAuth } from '../store/slices';
 
 export const Login = () => {
-    const { register, handleSubmit, watch } = useForm();
+    const { register, handleSubmit } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

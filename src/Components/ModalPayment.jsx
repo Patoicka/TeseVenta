@@ -1,15 +1,25 @@
 import React, { useState } from 'react'
 import { Modal } from './Modal';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { clearCar } from '../store/slices';
 
 export const ModalPayment = ({ title, show, onCancel }) => {
 
     const [loader, setLoader] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const handlePay = () => {
         setLoader(true);
 
         setTimeout(() => {
-            onCancel();
+            dispatch(clearCar());
             setLoader(false);
+            onCancel();
+
+
+            navigate('/');
         }, 1000);
     };
 
@@ -22,7 +32,7 @@ export const ModalPayment = ({ title, show, onCancel }) => {
             {loader ?
                 <div className="flex items-center justify-center mt-52">
                     <div className="relative w-16 h-16">
-                        <span className="absolute -bottom-14 -left-0 text-prussianBlue-700 font-semibold mb-4"> Pagando... </span>
+                        <span className="absolute -bottom-14 -left-0.5 text-prussianBlue-700 font-semibold mb-4"> Pagando... </span>
                         <div className="absolute w-16 h-16 border-t-4 border-l-4  border-prussianBlue-500 rounded-full animate-spin"></div>
                         <div className="absolute w-16 h-16 border-t-4 border-r-4  border-prussianBlue-500 rounded-full animate-spin-reverse"></div>
                     </div>

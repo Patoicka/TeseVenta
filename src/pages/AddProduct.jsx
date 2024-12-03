@@ -17,18 +17,19 @@ export const AddProduct = () => {
         if (selectedFile) {
             const imageUrl = URL.createObjectURL(selectedFile);
             setFile(imageUrl);
-        }
+        };
     };
 
     const onSubmit = (data) => {
-        const productData = { ...data, imageUrl: file };
-        dispatch(setProducts(productData));
+        const productData = { ...data, imgUrl: file };
+        dispatch(setProducts([productData]));
         reset();
         setFile(null);
     };
 
+
     return (
-        <div className="flex w-full h-full px-10 py-2">
+        <div className="flex w-full h-full px-10 py-2 bg-white">
             <div className="flex flex-col w-[40%] mr-20">
                 <h1 className="text-4xl uppercase font-bold">
                     Hola <span className="font-semibold text-2xl">{user?.nombre} </span>
