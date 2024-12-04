@@ -20,8 +20,8 @@ const initialState = {
             description: 'Adaptador de USB-C a entrada jack. De uso, en buen estado.',
             imgUrl: adaptador,
             telefono: 5512301204,
+            vendedor: 'Carlos López',
         },
-
         {
             id: 2,
             name: 'Arduino con cable',
@@ -29,8 +29,9 @@ const initialState = {
             price: 400,
             description: 'Arduino con cable de conexión.',
             imgUrl: arduino,
+            telefono: 5523456789,
+            vendedor: 'María García',
         },
-
         {
             id: 3,
             name: 'Audifonos bluetooth',
@@ -38,8 +39,9 @@ const initialState = {
             price: 180,
             description: 'Audifonos bluetooth. Comodos y fáciles de usar',
             imgUrl: audifonos,
+            telefono: 5534567890,
+            vendedor: 'Jorge Martínez',
         },
-
         {
             id: 4,
             name: 'Audifonos Sony',
@@ -47,8 +49,9 @@ const initialState = {
             price: 250,
             description: 'Audifonos Sony en excelente estado.',
             imgUrl: audifonos2,
+            telefono: 5545678901,
+            vendedor: 'Ana Fernández',
         },
-
         {
             id: 5,
             name: 'Bolsa Guess',
@@ -56,8 +59,9 @@ const initialState = {
             price: 300,
             description: 'Bolsa Guess, en buenas condiciones.',
             imgUrl: bolsa,
+            telefono: 5556789012,
+            vendedor: 'Laura Sánchez',
         },
-
         {
             id: 6,
             name: 'Cartera',
@@ -65,6 +69,8 @@ const initialState = {
             price: 260,
             description: 'Cartera de mujer.',
             imgUrl: cartera,
+            telefono: 5567890123,
+            vendedor: 'Elena Ruiz',
         },
     ],
     car: [],

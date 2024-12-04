@@ -125,9 +125,15 @@ export const Register = () => {
                     {errors.password && <span className="text-red-500 font-bold  text-sm">{errors.password.message}</span>}
                 </div>
 
+                <p
+                    className='mt-4 font-semibold italic'
+                >
+                    Al registrarte, aceptas nuestros <span className='text-lime-600 cursor-pointer' onClick={()=> navigate('/terminos')}> términos y condiciones</span>.
+                </p>
+
                 <button
-                    type="submit" // Importante para enviar el formulario
-                    className="mt-10 text-green-800 rounded-lg border-2 border-green-700 hover:bg-green-700 hover:border-black hover:text-white w-1/2 p-3"
+                    type="submit"
+                    className="mt-4 text-green-800 rounded-lg border-2 border-green-700 hover:bg-green-700 hover:border-black hover:text-white w-1/2 p-3"
                 >
                     <h1 className="text-lg font-semibold">Crear usuario</h1>
                 </button>

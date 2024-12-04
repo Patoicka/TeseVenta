@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { ModalPayment } from '../Components/ModalPayment';
+import { useNavigate } from 'react-router-dom';
 
 export const CarPage = () => {
 
     const { car } = useSelector((state) => state.mainSlice);
-    console.log(car);
-
+    const navigate = useNavigate();
     const [seeModal, setSeeModal] = useState(false);
 
     const totalProducts = car ? car?.length : 0;
@@ -14,12 +14,12 @@ export const CarPage = () => {
 
     return (
         <>
-            <div className='flex flex-col w-full h-full bg-white p-10 items-center'>
-                <h1 className='text-3xl font-bold pb-10'>TESE CARRITO</h1>
+            <div className='flex flex-col w-full h-full bg-white p-10 items-center overflow-auto'>
+                <h1 className='text-4xl font-bold pb-10'>TESE CARRITO</h1>
 
                 <div className='flex w-full'>
-                    <div className='w-2/3'>
-                        {car ? (
+                    <div className={`${car.length === 0 ? 'w-full' : 'w-2/3'}`}>
+                        {car.length ? (
                             car.map((product, index) => {
                                 return (
                                     <div key={index} className='flex w-full justify-between p-4 mb-4 bg-gray-200'>
@@ -47,11 +47,14 @@ export const CarPage = () => {
                                 )
                             })
                         ) : (
-                            <div>Sin productos</div>
+                            <div className='flex flex-col w-full h-64 justify-center items-center text-xl font-semibold'>
+                                <h1> Aún no has añadido ningun producto a tu carrito. </h1>
+                                <button onClick={() => navigate('/')} className='p-4 rounded-lg bg-lime-600 text-white mt-4 border-2 hover:bg-white hover:border-lime-600 hover:text-lime-600'> Comprar ahora </button>
+                            </div>
                         )}
                     </div>
 
-                    <div className='w-1/3 pl-10'>
+                    <div className={`w-1/3 pl-10 ${car.length === 0 ? 'hidden' : 'block'}`}>
                         <div className='flex flex-col w-full bg-gray-100 p-6 mb-4'>
                             <h2 className='text-xl font-semibold mb-4'>Resumen de Compra</h2>
                             <div className='flex justify-between mb-2'>
@@ -74,7 +77,7 @@ export const CarPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
             <ModalPayment
                 title={'Proceder a Pago'}

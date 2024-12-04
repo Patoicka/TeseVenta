@@ -7,6 +7,8 @@ import { Register } from '../pages/Register';
 import { AddProduct } from '../pages/AddProduct';
 import { useSelector } from 'react-redux';
 import { CarPage } from '../pages/CarPage';
+import { Footer } from '../Components/Footer';
+import { Terminos } from '../pages/Terminos';
 
 export const MainRoutes = () => {
 
@@ -25,9 +27,10 @@ export const MainRoutes = () => {
     const unLoginRoutes = () => {
         return (
             <>
-                <Route path='/inicioSesion' element={<Login />} />
                 <Route path='/' element={<Home />} />
                 <Route path='/registro' element={<Register />} />
+                <Route path='/inicioSesion' element={<Login />} />
+                <Route path='/terminos' element={<Terminos />} />
             </>
         )
     };
@@ -38,6 +41,7 @@ export const MainRoutes = () => {
             <Routes>
                 {auth ? loginRoutes() : unLoginRoutes()}
             </Routes>
+            <Footer />
         </Router>
 
     )

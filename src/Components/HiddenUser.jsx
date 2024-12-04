@@ -8,6 +8,10 @@ export const HiddenUser = () => {
 
     const { show, user } = useSelector((state) => state.mainSlice);
 
+    const closeUser = () => {
+        window.location.reload();
+    };
+
     return (
         <>
             {show ?
@@ -59,7 +63,10 @@ export const HiddenUser = () => {
                                 </div>
 
                                 <div className='flex w-full h-full justify-start items-end mb-3  hover:text-green-900 text-black'>
-                                    <div className='flex items-center hover:font-semibold cursor-pointer'>
+                                    <div
+                                        className='flex items-center hover:font-semibold cursor-pointer'
+                                        onClick={closeUser}
+                                    >
                                         <h1 className='text-lg '> Cerrar sesión </h1>
                                         <FontAwesomeIcon icon={faDoorOpen} className='pl-2' />
                                     </div>

@@ -2,17 +2,14 @@ import React, { useEffect, useState } from 'react'
 
 import pluma from '../assets/images/pluma.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faCheck, faUser } from '@fortawesome/free-solid-svg-icons';
 import { HiddenUser } from '../Components/HiddenUser';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCar } from '../store/slices';
 
 export const Home = () => {
 
-    const { products } = useSelector((state) => state.mainSlice);
-
-    console.log(products);
-
+    const { products, user } = useSelector((state) => state.mainSlice);
     const dispatch = useDispatch();
 
     const [addWarn, setAddWarn] = useState(false);
@@ -26,27 +23,40 @@ export const Home = () => {
         }, 1000);
     };
 
+    const warningMsj = () => {
+        if (Object.keys(user).length) {
+            return (
+                <div className='absolute bg-lime-100 h-24 p-4 rounded-lg top-96'>
+                    <p className='flex flex-col h-full justify-center text-lg italic font-semibold'> Producto agregado a carrito  <FontAwesomeIcon icon={faCheck} /></p>
+                </div>
+            )
+        } else {
+            return (
+                <div className='absolute bg-red-800 h-24 p-4 rounded-lg top-96 text-white'>
+                    <p className='flex flex-col h-full justify-center text-lg italic font-semibold'> Debes iniciar sesión antes de comprar<FontAwesomeIcon icon={faUser} /></p>
+                </div>
+            )
+        }
+    };
+
     return (
         <>
-            <div className='flex flex-col bg-white w-full items-center justify-center'>
+            <div className='flex flex-col bg-white w-full h-full items-center'>
 
                 {addWarn &&
-                    <div className='absolute bg-lime-100 h-24 p-4 rounded-lg'>
-                        <p className='flex flex-col h-full justify-center text-lg italic font-semibold'> Producto agregado a carrito  <FontAwesomeIcon icon={faCheck} /></p>
-                    </div>
+                    warningMsj()
                 }
 
-                <div className='flex w-full justify-center mt-10 border-b-2 border-black pb-8'>
-                    <div className='flex w-full justify-center px-10'>
-                        <p className='flex flex-col text-center text-2xl italic'>
-                            <span className='text-4xl font-bold not-italic'> Bienvenidos a TESEGUNDA </span>
+                <div className='flex w-full h-8 justify-center items-center border-b-2 border-black py-10'>
+                    <div className='flex w-full items-center justify-center px-10'>
+                        <p className='flex text-center text-xl italic'>
                             Aqui encontratas los mejores productos de segunda mano, a bajos precios y excelente calidad.
                         </p>
                     </div>
                 </div>
 
-                <h1 className='text-3xl font-semibold text-center my-10'> Algunos productos </h1>
-                <div className="flex w-full justify-center items-center flex-wrap gap-6 pb-10">
+                <h1 className='text-3xl font-semibold text-center my-6'> Algunos productos </h1>
+                <div className="flex w-full justify-center items-center flex-wrap gap-6 pb-10 overflow-auto">
                     {products && products.length > 0 ? (
                         products.map((product, index) => {
                             return (
