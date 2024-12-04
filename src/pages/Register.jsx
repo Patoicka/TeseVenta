@@ -1,4 +1,4 @@
-import { faEnvelope, faEye, faEyeSlash, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faEye, faEyeSlash, faLock, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -80,6 +80,24 @@ export const Register = () => {
                         className="w-full border-2 border-green-700 bg-alabaster-200 p-3 pr-10"
                     />
                     {errors.correo && <span className="text-red-500 font-bold  text-sm">{errors.correo.message}</span>}
+                </div>
+
+                <div className="flex flex-col w-full justify-center relative mt-10 px-6 bg-alabaster-200">
+                    <label className="flex items-center absolute left-10 -top-4 ml-1 bg-alabaster-200 px-1 font-semibold">
+                        Télefono <FontAwesomeIcon icon={faPhone} className="pl-2" />
+                    </label>
+                    <input
+                        {...register('telefono', {
+                            required: 'El telefono es obligatorio',
+                            pattern: {
+                                value: /^[0-9]{10}$/,
+                                message: 'Ingresa un télefono valido.'
+                            }
+                        })}
+                        type="telefono"
+                        className="w-full border-2 border-green-700 bg-alabaster-200 p-3 pr-10"
+                    />
+                    {errors.telefono && <span className="text-red-500 font-bold  text-sm">{errors.telefono.message}</span>}
                 </div>
 
                 <div className="flex flex-col w-full justify-center relative mt-10 px-6 bg-alabaster-200">

@@ -19,6 +19,7 @@ const initialState = {
             price: 60,
             description: 'Adaptador de USB-C a entrada jack. De uso, en buen estado.',
             imgUrl: adaptador,
+            telefono: 5512301204,
         },
 
         {

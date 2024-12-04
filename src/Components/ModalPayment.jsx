@@ -52,7 +52,7 @@ export const ModalPayment = ({ title, show, onCancel }) => {
                         <input type="text" className='border-2 border-black p-2 rounded-lg' />
                     </div>
                     <div className='flex flex-col w-1/2 py-3'>
-                        <label className='pl-1'> Caducidad </label>
+                        <label className='pl-1'> Vencimiento </label>
                         <input type="text" className='border-2 border-black p-2 rounded-lg' />
                     </div>
                     <div className='flex flex-col w-1/2 py-3'>
@@ -61,7 +61,7 @@ export const ModalPayment = ({ title, show, onCancel }) => {
                     </div>
 
                     <button
-                        className='bg-lime-100 w-1/6 p-3 rounded-lg border border-black mt-4'
+                        className='bg-lime-600 text-white font-semibold w-1/6 p-3 rounded-lg border hover:bg-white hover:border-lime-600 hover:text-lime-600 mt-4'
                         onClick={handlePay}
                     >
                         Pagar

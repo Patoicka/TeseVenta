@@ -62,7 +62,7 @@ export const Home = () => {
                                     <h2 className="text-lg font-bold mb-2">{product.name}</h2>
                                     <p className="text-gray-600 mb-4">Precio: ${product.price}</p>
                                     <button
-                                        className="flex items-center justify-center bg-lime-600 text-white py-2 px-4 rounded-md hover:bg-lime-500"
+                                        className="flex items-center justify-center bg-lime-700 text-white py-2 px-4 rounded-md hover:bg-lime-500"
                                         onClick={() => addCar(product)}
                                     >
                                         <FontAwesomeIcon

@@ -6,6 +6,8 @@ import { setProducts } from '../store/slices';
 export const AddProduct = () => {
     const { user } = useSelector((state) => state.mainSlice);
 
+    console.log(user);
+
     const dispatch = useDispatch();
 
     const [check, setCheck] = useState(false);
@@ -21,7 +23,7 @@ export const AddProduct = () => {
     };
 
     const onSubmit = (data) => {
-        const productData = { ...data, imgUrl: file };
+        const productData = { ...data, imgUrl: file, vendedor: user?.nombre, telefono: user?.telefono };
         dispatch(setProducts([productData]));
         reset();
         setFile(null);
@@ -95,7 +97,7 @@ export const AddProduct = () => {
 
                             <div className="flex flex-col w-1/3 pt-4">
                                 <div className="flex flex-col relative w-full my-4">
-                                    <label className="font-semibold pb-1">Nombre</label>
+                                    <label className="font-semibold pb-1">Nombre producto</label>
                                     <input
                                         type="text"
                                         {...register('name', { required: true })}
@@ -125,6 +127,22 @@ export const AddProduct = () => {
                                         className="p-2 bg-alabaster-400 border-2 border-black rounded-lg"
                                     />
                                 </div>
+                                {/* <div className="flex flex-col relative w-full my-2">
+                                    <label className="font-semibold pb-1">Nombre vendedor</label>
+                                    <input
+                                        type="number"
+                                        {...register('price', { required: true })}
+                                        className="p-2 bg-alabaster-400 border-2 border-black rounded-lg"
+                                    />
+                                </div>
+                                <div className="flex flex-col relative w-full my-2">
+                                    <label className="font-semibold pb-1">Costo</label>
+                                    <input
+                                        type="number"
+                                        {...register('price', { required: true })}
+                                        className="p-2 bg-alabaster-400 border-2 border-black rounded-lg"
+                                    />
+                                </div> */}
                             </div>
 
                             <div className="flex flex-col w-2/3 h-full pt-4 pl-10 items-center justify-center">

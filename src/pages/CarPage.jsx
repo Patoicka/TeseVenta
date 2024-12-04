@@ -5,6 +5,7 @@ import { ModalPayment } from '../Components/ModalPayment';
 export const CarPage = () => {
 
     const { car } = useSelector((state) => state.mainSlice);
+    console.log(car);
 
     const [seeModal, setSeeModal] = useState(false);
 
@@ -32,6 +33,12 @@ export const CarPage = () => {
                                                 </h1>
                                                 <p>
                                                     <span className='text-xl font-semibold'>Descripción:</span> {product?.description}
+                                                </p>
+                                                <p>
+                                                    <span className='text-xl font-semibold'>Nombre de vendedor:</span> {product?.vendedor}
+                                                </p>
+                                                <p>
+                                                    <span className='text-xl font-semibold'>Télefono de contacto:</span> {product?.telefono}
                                                 </p>
                                             </div>
                                         </div>
